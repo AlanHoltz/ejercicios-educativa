@@ -27,13 +27,13 @@ def main():
 
     cadena_cpy = str(cadena)
     
-    cadena_cpy = re.sub("_"," ",cadena_cpy) #REEMPLAZAR GUIONES POR ESPACIOS
+    cadena_cpy = re.sub("_"," ",cadena_cpy)
     
-    cadena_cpy = re.sub("\$"," - ", cadena_cpy) #SEPARAR POR NOMBRE COMPLETO
+    cadena_cpy = re.sub("\$"," - ", cadena_cpy)
 
-    alumnos = cadena_cpy.split(" - ") #ALMACENAR CADA NOMBRE EN UNA LISTA   
+    alumnos = cadena_cpy.split(" - ")
 
-    for alumno in alumnos:      #MUESTRA DE CADA ALUMO POR LÍNEA
+    for alumno in alumnos:
         print(f"{alumno}\n")
 
 
