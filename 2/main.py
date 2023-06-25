@@ -29,9 +29,9 @@ def generar_diccionario(lista_nombres):
 
 def ordenar(lista_nombres):
 
-    lista_nombres = formatear_nombres(lista_nombres) #SE FORMATEAN LOS NOMBRES COMPLETOS DE LA SIGUIENTE MANERA: Apellido, Nombre
+    lista_nombres = formatear_nombres(lista_nombres)
     
-    lista_nombres = sorted(lista_nombres) # SE ORDENAN LOS NOMBRES ALFABÉTICAMENTE POR APELLIDO
+    lista_nombres = sorted(lista_nombres)
 
     return generar_diccionario(lista_nombres)
 
