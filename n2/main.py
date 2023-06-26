@@ -1,12 +1,4 @@
-from os import system
-import platform
-
-
-def clear():
-    if (platform.system() == "Windows"):
-        system("cls")
-    else:
-        system("clear")
+from utils.functions import clear
 
 
 def formatear_nombres(lista_nombres):       
@@ -43,7 +35,3 @@ def main():
     lista_nombres = ["Jacinta Flores", "Juan Carlos Feletti","Pedro Lugones", "Ana María Galíndez"]
     
     print(ordenar(lista_nombres))
-
-
-if __name__ == "__main__":
-    main()

@@ -1,13 +1,5 @@
-import platform
-from os import system
 import requests
-
-
-def clear():
-    if (platform.system() == "Windows"):
-        system("cls")
-    else:
-        system("clear")
+from utils.functions import clear
 
 
 def fetch(url):
@@ -31,9 +23,3 @@ def main():
 
     except requests.exceptions.HTTPError as err:
         print(err)
-
-
-if __name__ == "__main__":
-    main()
-
-#pip install requests

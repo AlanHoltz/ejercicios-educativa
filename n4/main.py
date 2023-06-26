@@ -1,18 +1,10 @@
-import platform
-from os import system
+from utils.functions import clear
 from mysql.connector import connect, Error
 from os import getenv
 from dotenv import load_dotenv
 
 
 load_dotenv()
-
-
-def clear():
-    if (platform.system() == "Windows"):
-        system("cls")
-    else:
-        system("clear")
 
 
 def get_db_connection():
@@ -73,6 +65,4 @@ def main():
     )
     """)
 
-
-if __name__ == "__main__":
-    main()
+    print("LAS TABLAS usuarios, cursos y usuarios_cursos HAN SIDO CREADAS CORRECTAMENTE")

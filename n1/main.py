@@ -1,12 +1,4 @@
-from os import system
-import platform
-
-
-def clear():
-    if(platform.system() == "Windows"):
-        system("cls")
-    else:
-        system("clear")
+from utils.functions import clear
 
 
 def main():
@@ -30,8 +22,4 @@ Berto_Carlos_Kigali$Juan_Manuel_Miraflores$Nicolás_Kligorsky$María_Laura_Berot
     alumnos = cadena.split(" - ")
 
     for alumno in alumnos:
-        print(f"{alumno}\n")
-
-
-if __name__ == "__main__":
-    main()
+        print(f"{alumno}\n")    
