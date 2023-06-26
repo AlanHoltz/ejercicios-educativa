@@ -23,3 +23,6 @@ Berto_Carlos_Kigali$Juan_Manuel_Miraflores$Nicolás_Kligorsky$María_Laura_Berot
 
     for alumno in alumnos:
         print(f"{alumno}\n")    
+
+if __name__ == "__main__":
+    main()
