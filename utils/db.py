@@ -1,6 +1,6 @@
 from os import getenv
 from dotenv import load_dotenv
-from mysql.connector import connect, Error as MySQLError
+from mysql.connector import connect, Error as MySQLError, IntegrityError
 
 
 load_dotenv()
@@ -38,5 +38,23 @@ def db_execute(statements:list[tuple]):
 
         db.commit()
         db.close()
+    except IntegrityError as err:
+        raise err
+    except MySQLError as err:
+        raise err
+    
+
+def db_execute_many(query:str,rows:list[tuple]):
+    try:
+        db = get_db_connection()
+        cursor = db.cursor()
+
+        cursor.executemany(query, rows)
+
+        db.commit()
+        db.close()
+
+    except IntegrityError as err:
+        raise err
     except MySQLError as err:
         raise err
