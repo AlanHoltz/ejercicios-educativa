@@ -1,5 +1,5 @@
 import requests
-from utils.functions import clear
+from utils.common import clear
 
 
 USUARIOS_URL = "http://packages.educativa.com/samples/usuarios.json"

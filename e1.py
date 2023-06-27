@@ -1,4 +1,4 @@
-from utils.functions import clear
+from utils.common import clear
 
 
 def main():

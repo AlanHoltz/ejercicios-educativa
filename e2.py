@@ -1,7 +1,7 @@
-from utils.functions import clear
+from utils.common import clear
 
 
-def formatear_nombres(lista_nombres):       
+def formatear_nombres(lista_nombres:list):       
     for i, nombre_completo in enumerate(lista_nombres):
         nombre = " ".join(nombre_completo.split(" ")[:-1])
         apellido = nombre_completo.split(" ")[-1]
@@ -10,7 +10,7 @@ def formatear_nombres(lista_nombres):
     return lista_nombres
 
 
-def generar_diccionario(lista_nombres):
+def generar_diccionario(lista_nombres:list):
     nombres_dict = {}
 
     for i in range(1,len(lista_nombres) + 1):
@@ -19,7 +19,7 @@ def generar_diccionario(lista_nombres):
     return nombres_dict
 
 
-def ordenar(lista_nombres):
+def ordenar(lista_nombres:list):
 
     lista_nombres = formatear_nombres(lista_nombres)
     

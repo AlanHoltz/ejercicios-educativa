@@ -1,6 +1,6 @@
 from os import getenv
 from dotenv import load_dotenv
-from mysql.connector import connect, Error as MySQLError, IntegrityError
+from mysql.connector import connect, Error as MySQLError
 
 
 load_dotenv()
@@ -16,45 +16,31 @@ def get_db_connection():
         )
     except MySQLError as err:
         raise err
-    
-
-def statement_is_valid(statement:tuple):
-        return len(statement) < 2 or not isinstance(statement[0], str) or not isinstance(statement[1] , (tuple,type(None)))
-    
-
-def db_execute(statements:list[tuple]):
-    try:
-        if not type(statements) == list:
-            raise Exception("SE DEBE PROVEER UNA LISTA DE TUPLAS DE LONGITUD 2")
         
+
+def db_execute(query:str,params:list=None):
+    try:
         db = get_db_connection()
-        cursor = db.cursor()        
-
-        for statement in statements:
-            if statement_is_valid(statement):
-                raise Exception("LOS ELEMENTOS DE LA LISTA, DEBEN SER UNA TUPLA DE LONGITUD 2, DONDE EL PRIMER ELEMENTO ES UN STRING REPRESENTANDO LA CONSULTA, Y EL SEGUNDO LA TUPLA CON LOS PARÁMETROS (PUEDE SER None)")
-            (query,params) = statement
-            cursor.execute(query,params)
-
+        cursor = db.cursor()
+        cursor.execute(query,params)
+        data = cursor.fetchall()
         db.commit()
-        db.close()
-    except IntegrityError as err:
-        raise err
+        return data
     except MySQLError as err:
         raise err
-    
+    finally:
+        cursor.close()
+        db.close()
+        
 
 def db_execute_many(query:str,rows:list[tuple]):
     try:
         db = get_db_connection()
         cursor = db.cursor()
-
         cursor.executemany(query, rows)
-
         db.commit()
-        db.close()
-
-    except IntegrityError as err:
-        raise err
     except MySQLError as err:
         raise err
+    finally:
+        cursor.close()
+        db.close()
