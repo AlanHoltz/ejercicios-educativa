@@ -57,5 +57,6 @@ def main():
 
     listar_inscripciones()
 
+
 if __name__ == "__main__":
     main()
