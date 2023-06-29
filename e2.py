@@ -1,40 +1,42 @@
 from utils.common import clear
 
 
-def ordenar(lista_nombres:list):
+def sort(names:list):
 
-    lista_nombres = formatear_nombres(lista_nombres)
+    names = format_names(names)
     
-    lista_nombres = sorted(lista_nombres)
+    names = sorted(names)
 
-    return generar_diccionario(lista_nombres)
-
-
-def formatear_nombres(lista_nombres:list):       
-    for i, nombre_completo in enumerate(lista_nombres):
-        nombre = " ".join(nombre_completo.split(" ")[:-1])
-        apellido = nombre_completo.split(" ")[-1]
-        lista_nombres[i] = f"{apellido}, {nombre}"
-
-    return lista_nombres
+    return create_dict(names)
 
 
-def generar_diccionario(lista_nombres:list):
-    nombres_dict = {}
+def format_names(names:list):       
+    
+    for i, full_name in enumerate(names):
+        name = " ".join(full_name.split(" ")[:-1])
+        surname = full_name.split(" ")[-1]
+        names[i] = f"{surname}, {name}"
 
-    for i in range(1,len(lista_nombres) + 1):
-        nombres_dict[i] = lista_nombres[i - 1]
+    return names
 
-    return nombres_dict
+
+def create_dict(names:list):
+    
+    dict_names = {}
+
+    for i in range(1,len(names) + 1):
+        dict_names[i] = names[i - 1]
+
+    return dict_names
 
 
 def main():
     
     clear()
 
-    lista_nombres = ["Jacinta Flores", "Juan Carlos Feletti","Pedro Lugones", "Ana María Galíndez"]
+    names = ["Jacinta Flores", "Juan Carlos Feletti","Pedro Lugones", "Ana María Galíndez"]
     
-    print(ordenar(lista_nombres))
+    print(sort(names))
 
 
 if __name__ == "__main__":

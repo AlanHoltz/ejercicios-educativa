@@ -3,7 +3,7 @@ from utils.common import clear
 
 def main():
 
-    cadena = "Jacinta_Flores$Juan_Carlos_Feletti$Pedro_Lugones$Ana_María_Galíndez$\
+    string = "Jacinta_Flores$Juan_Carlos_Feletti$Pedro_Lugones$Ana_María_Galíndez$\
 Juana_Bermudez$Rafael_Ernesto_Brahms$Beatriz_Valente$Ulma_Fabiana_Goya$Martina_Nicolesi$\
 Betania_Miraflores$Fermín_Olivetti$Ana_Luz_Narosky$Graciana_Arruabarrena$Joel_Pérez$\
 Valentina_Feller$Hector_Tadeo_Siemens$Natalia_Martinevsky$Ernesto_Nicolini$Pia_Paez$\
@@ -15,14 +15,14 @@ Berto_Carlos_Kigali$Juan_Manuel_Miraflores$Nicolás_Kligorsky$María_Laura_Berot
 
     clear()
 
-    cadena = cadena.replace("_"," ")
+    string = string.replace("_"," ")
 
-    cadena = cadena.replace("$"," - ")
+    string = string.replace("$"," - ")
 
-    alumnos = cadena.split(" - ")
+    students = string.split(" - ")
 
-    for alumno in alumnos:
-        print(f"{alumno}\n")    
+    for student in students:
+        print(f"{student}\n")    
 
 
 if __name__ == "__main__":
