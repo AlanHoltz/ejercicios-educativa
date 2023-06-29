@@ -4,8 +4,17 @@ from utils.db import db_execute_many, db_execute
 from mysql.connector import IntegrityError, Error as MySQLError
 from tabulate import tabulate
 
+
+def obtener_inscripciones(usuarios:list):
+    inscripciones = []
+    for usuario in usuarios:
+        cursos_usuario = usuario["id_curso"]
+        for curso in cursos_usuario:
+            inscripciones.append({"user_id": usuario["id"], "course_id": curso})
+    return inscripciones
+
     
-def fill_table(table_name: str,columns:list, data:list):    
+def llenar_tabla(table_name: str,columns:list, data:list):    
     try:
         rows = []
         for element in data:
@@ -17,15 +26,6 @@ def fill_table(table_name: str,columns:list, data:list):
         pass
     except MySQLError as err:
         print(err)
-
-
-def get_users_courses_list(users:list):
-    users_cousers = []
-    for user in users:
-        user_courses = user["id_curso"]
-        for course in user_courses:
-            users_cousers.append({"user_id": user["id"], "course_id": course})
-    return users_cousers
 
 
 def listar_inscripciones():
@@ -47,13 +47,13 @@ def main():
     
     clear()
 
-    users = fetch_usuarios()
-    courses = fetch_cursos()
-    users_courses = get_users_courses_list(users)
+    usuarios = fetch_usuarios()
+    cursos = fetch_cursos()
+    inscripciones = obtener_inscripciones(usuarios)
 
-    fill_table("usuarios", ["id","nombre", "apellido"], users)
-    fill_table("cursos", ["id","nombre","id_docente","cupo"], courses)
-    fill_table("usuarios_cursos", ["course_id", "user_id"], users_courses)
+    llenar_tabla("usuarios", ["id","nombre", "apellido"], usuarios)
+    llenar_tabla("cursos", ["id","nombre","id_docente","cupo"], cursos)
+    llenar_tabla("usuarios_cursos", ["course_id", "user_id"], inscripciones)
 
     listar_inscripciones()
 

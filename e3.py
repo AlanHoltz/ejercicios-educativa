@@ -28,6 +28,7 @@ def main():
         
         usuarios = fetch_usuarios()
         cursos = fetch_cursos()
+        
         print(f"USUARIOS:\n\n{usuarios}\n\nCURSOS:\n\n{cursos}")
 
     except requests.exceptions.HTTPError as err:
