@@ -17,7 +17,7 @@ def get_parser_values():
     args = parser.parse_args()
 
     if not any(vars(args).values()):
-        parser.print_help()
+        return parser.print_help()
 
     return args
 
@@ -80,6 +80,9 @@ def delete_enrollment(parser_values):
 def main():
 
     parser_values = get_parser_values()
+
+    if parser_values is None:
+        return
        
     if not parser_values_are_valid(parser_values):
         return

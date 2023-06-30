@@ -82,7 +82,7 @@ En **Linux**, usamos la terminal para importarlo. Si MySQL Server está recién 
 
 ```bash
 sudo  su
-mysql  -u  root < db_creation.sql
+mysql -u root < db_creation.sql
 ```
 
 ### Inicializar variables de entorno  
@@ -124,4 +124,67 @@ Una vez dentro del mismo, vamos a instalar los paquetes desde el archivo `requir
 pip install -r requirements.txt
 # O 
 pip3 install -r requirements.txt
+```
+
+Ya estamos en condiciones para ejecutar y probar todos los ejercicios.
+
+## Ejecución de ejercicios
+
+Los ejercicios se encuentran en `.../ejercicios-educativa/src`. Cada uno, puede ejecutarse de la siguiente manera:
+
+```bash
+py eX.py
+# O 			#X=1,2,3,4,5,6
+python3 ex.py
+```
+
+Si bien todos los ejercicios, se pueden ejecutar de la misma forma, el **e6**, queda a la espera de argumentos.
+
+### Ejercicio 6 (Inscribir usuario a un curso)
+
+Este ejercicio trabaja con argumentos opcionales (no posicionales). Si ejecutamos el mismo, sin especificar ninguna bandera, podremos ver las diferentes opciones:
+
+```bash
+py e6.py
+# O 
+python3 e6.py
+```
+
+```bash
+usage: e6.py [-h] [-m | -i | -e] [-u USER] [-c COURSE]
+
+options:
+  -h, --help            Muestra este mensaje
+  -m, --mostrar         Mostrar lista de inscripciones
+  -i, --inscribir       Inscribir
+  -e, --eliminar        Eliminar
+  -u USER, --usuario USER
+                        Usuario a inscribir/eliminar de una inscripción
+  -c COURSE, --curso COURSE
+                        Curso donde inscribir/eliminar la inscripción del usuario
+```
+
+#### Ejemplos de uso
+
+Mostrar lista de inscripciones de un usuario a un curso:
+
+```bash
+py e6 -m
+# O
+python3 e6 -m
+```
+Inscribir el usuario 1 al curso 1:
+
+```bash
+py e6 -i -u 1 -c 1
+# O
+python3 e6 -i -u 1 -c 1
+```
+
+Eliminar la inscripción del usuario 1 al curso 1:
+
+```bash
+py e6 -e -u 1 -c 1
+# O
+python3 e6 -e -u 1 -c 1
 ```
