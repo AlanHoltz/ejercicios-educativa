@@ -28,8 +28,8 @@ which python3
 Si **NO** es el caso, procederemos a instalar ambas dependencias:
 
 ```bash
-sudo apt-get  update
-sudo apt-get  install  python3.7  python3-pip
+sudo apt-get update
+sudo apt-get install python3.7 python3-pip
 ```
 
 ### MySQL
@@ -43,19 +43,19 @@ Se dispone de [MySQL Server](https://dev.mysql.com/downloads/mysql/) para instal
 Para instalar el motor de DB:
 
 ```bash
-sudo apt  install  mysql-server
+sudo apt install mysql-server
 ```
 
 Comprobamos que el servicio esté activo:
 
 ```bash
-sudo systemctl  status  mysql
+sudo systemctl status mysql
 ```
 
 En caso de no estarlo, basta con ejecutar la siguiente línea:
 
 ```bash
-sudo systemctl  start  mysql
+sudo systemctl start mysql
 ```
 
 ## Preparar para ejecución  
@@ -63,7 +63,7 @@ sudo systemctl  start  mysql
 ### Clonar repositorio
 
 ```bash
-git clone  https://github.com/AlanHoltz/{usuario}@ejercicios-educativa.git
+git clone https://github.com/AlanHoltz/{usuario}@ejercicios-educativa.git
   
 #{usuario} es el nombre con el que se está logueado actualmente en Git
 ```
@@ -81,7 +81,7 @@ En **Windows**, se puede usar directamente MySQL Workbench. Importamos el archiv
 En **Linux**, usamos la terminal para importarlo. Si MySQL Server está recién instalado, lo más probable es que tengamos que loguearnos como usuario root:  
 
 ```bash
-sudo  su
+sudo su
 mysql -u root < db_creation.sql
 ```
 
