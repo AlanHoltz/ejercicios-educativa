@@ -5,6 +5,7 @@ from utils.common import clear
 
 
 def get_parser_values():
+    
     parser = argparse.ArgumentParser(add_help=False)
     operations = parser.add_mutually_exclusive_group()
     parser.add_argument('-h', '--help' , action='help',default=argparse.SUPPRESS,help="Muestra este mensaje")
@@ -72,6 +73,7 @@ def create_enrollment(parser_values):
 
 
 def delete_enrollment(parser_values):
+    
     if user_and_course_values_are_valid(parser_values):
         db_execute("DELETE FROM usuarios_cursos WHERE id_curso = %s AND id_alumno = %s", [parser_values.course, parser_values.user])
         print(f"SE HA ELIMINADO LA INSCRIPCIÓN DEL USUARIO CON ID {parser_values.user} AL CURSO DE ID {parser_values.course}")
