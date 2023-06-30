@@ -166,14 +166,14 @@ options:
 
 #### Ejemplos de uso
 
-Mostrar lista de inscripciones de un usuario a un curso:
+Mostrar lista de inscripciones de los usuarios a los distintos cursos:
 
 ```bash
 py e6 -m
 # O
 python3 e6 -m
 ```
-Inscribir el usuario 1 al curso 1:
+Inscribir el usuario con ID 1 al curso de ID 1:
 
 ```bash
 py e6 -i -u 1 -c 1
@@ -181,7 +181,7 @@ py e6 -i -u 1 -c 1
 python3 e6 -i -u 1 -c 1
 ```
 
-Eliminar la inscripción del usuario 1 al curso 1:
+Eliminar la inscripción del usuario con ID 3 al curso de ID 5:
 
 ```bash
 py e6 -e -u 1 -c 1
