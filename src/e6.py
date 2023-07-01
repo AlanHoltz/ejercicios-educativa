@@ -40,14 +40,40 @@ def parser_values_are_valid(parser_values):
     return True
 
 
-def user_and_course_values_are_valid(parser_values):
+def create_enrollment(parser_values,user,course):
 
-    user = db_execute("SELECT * FROM usuarios u WHERE u.id_usuario = %s", [parser_values.user])
+    [student_id,student_name,student_surname] = user[0]
+    course_name = course[0][1]
+    
+    db_execute("INSERT INTO usuarios_cursos VALUES (%s,%s)",[parser_values.course, parser_values.user])
+    print(f"SE HA INSCRIPTO AL USUARIO {student_name} {student_surname} (ID: {parser_values.user}) AL CURSO {course_name} (ID: {parser_values.course})")
+
+
+def delete_enrollment(parser_values,user,course):
+
+    [student_id,student_name,student_surname] = user[0]
+    course_name = course[0][1]
+
+    db_execute("DELETE FROM usuarios_cursos WHERE id_curso = %s AND id_alumno = %s", [parser_values.course, parser_values.user])
+    print(f"SE HA ELIMINADO LA INSCRIPCIÓN DEL USUARIO {student_name} {student_surname} (ID: {parser_values.user}) AL CURSO {course_name} (ID: {parser_values.course})")
+
+
+def get_user(parser_values):
+    
+    return db_execute("SELECT * FROM usuarios u WHERE u.id_usuario = %s", [parser_values.user])
+
+
+def get_course(parser_values):
+    
+    return db_execute("SELECT * FROM cursos u WHERE u.id_curso = %s", [parser_values.course])
+
+
+def user_and_course_values_are_valid(user,course,parser_values):
+    
     if not any(user):
         print(f"EL USUARIO DE ID {parser_values.user} NO EXISTE")
         return False 
     
-    course = db_execute("SELECT * FROM cursos u WHERE u.id_curso = %s", [parser_values.course])
     if not any(course):
         print(f"EL CURSO DE ID {parser_values.course} NO EXISTE")  
         return False
@@ -55,48 +81,41 @@ def user_and_course_values_are_valid(parser_values):
     return True
     
 
-def existing_enrollment(parser_values):
+def existing_enrollment(user,course,parser_values):
+    
+    [student_id,student_name,student_surname] = user[0]
+    course_name = course[0][1]
 
     enrollment = db_execute("SELECT * FROM usuarios_cursos WHERE id_alumno = %s AND id_curso = %s", [parser_values.user, parser_values.course])
     if any(enrollment):
-        print(f"YA EXISTE UNA INSCRIPCIÓN DEL USUARIO CON ID {parser_values.user} AL CURSO DE ID {parser_values.course}")
+        print(f"YA EXISTE UNA INSCRIPCIÓN DEL USUARIO {student_name} {student_surname} (ID: {parser_values.user}) AL CURSO {course_name} (ID: {parser_values.course})")
         return True 
     
     return False
-
-
-def create_enrollment(parser_values):
-    
-    if user_and_course_values_are_valid(parser_values) and not existing_enrollment(parser_values):
-        db_execute("INSERT INTO usuarios_cursos VALUES (%s,%s)",[parser_values.course, parser_values.user])
-        print(f"SE HA INSCRIPTO AL USUARIO CON ID {parser_values.user} AL CURSO DE ID {parser_values.course}")
-
-
-def delete_enrollment(parser_values):
-    
-    if user_and_course_values_are_valid(parser_values):
-        db_execute("DELETE FROM usuarios_cursos WHERE id_curso = %s AND id_alumno = %s", [parser_values.course, parser_values.user])
-        print(f"SE HA ELIMINADO LA INSCRIPCIÓN DEL USUARIO CON ID {parser_values.user} AL CURSO DE ID {parser_values.course}")
         
 
 def main():
 
     parser_values = get_parser_values()
 
-    if parser_values is None:
+    if parser_values is None or not parser_values_are_valid(parser_values):
         return
        
-    if not parser_values_are_valid(parser_values):
-        return
-    
     if parser_values.show:
         show_enrollments()
         
-    elif parser_values.enroll:
-        create_enrollment(parser_values)
-    
     else:
-        delete_enrollment(parser_values)
+
+        user = get_user(parser_values)
+        course = get_course(parser_values)
+
+        if not user_and_course_values_are_valid(user,course,parser_values):
+            return
+
+        if parser_values.enroll and not existing_enrollment(user,course,parser_values):
+            create_enrollment(parser_values, user, course)
+        elif parser_values.delete:
+            delete_enrollment(parser_values, user, course)
 
 
 if __name__ == "__main__":
