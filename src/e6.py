@@ -27,7 +27,7 @@ def parser_values_are_valid(parser_values):
 
     at_least_one_operation = parser_values.show or parser_values.enroll or parser_values.delete 
 
-    if not (at_least_one_operation):
+    if not at_least_one_operation:
         print("Error: debes ingresar al menos una operación (-m,-i,-e)")
         return False
     

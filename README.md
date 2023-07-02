@@ -4,7 +4,7 @@ Esta es una guía para poder ejecutar correctamente cada uno de los seis ejercic
   
 ## Instalación de dependencias
 
-Para poder ejecutar cada uno de los ejercicios, va a ser necesario disponer del intérprete de **Python**, junto con su instalador de paquetes (**pip**), y el motor de DB **MySQL**. Cabe destacar, que las instrucciones referidas a Linux, han sido probadas en la distribución Mint 21.1 Cinnamon. Puede que sea necesario instalar manualmente el creador de entornos virtuales para concentrar la instalación de las librerías a usar, dependiendo el sistema operativo.
+Para poder ejecutar cada uno de los ejercicios, va a ser necesario disponer del intérprete de **Python**, junto con su instalador de paquetes (**pip**), y el motor de DB **MySQL**. Cabe destacar, que las instrucciones referidas a Linux, han sido probadas en la distribución Mint. Puede que sea necesario instalar manualmente el creador de entornos virtuales para concentrar la instalación de las librerías a usar, dependiendo el sistema operativo.
 
 ### Python  
 
