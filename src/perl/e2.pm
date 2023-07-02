@@ -2,9 +2,8 @@ package e2;
 
 
 use strict;
-#use lib ".";
-#use common;
-use e1;
+use lib 'utils';
+use common;
 
 
 sub format_names {
@@ -24,6 +23,7 @@ sub format_names {
 
 
 sub generate_hash {
+
     my $ordered_names_len = scalar(@_);
     my %ordered_names = ();
 
@@ -50,6 +50,8 @@ sub sort_array {
 
 
 sub main {
+
+    common::clear();
     
     my @lista_nombres = ("Jacinta Flores", "Juan Carlos Feletti", "Pedro Lugones", "Ana Maria Galindez");
     
@@ -58,7 +60,9 @@ sub main {
 
 
 if($0 eq __FILE__){
+    
     main();
 };
+
 
 1;
