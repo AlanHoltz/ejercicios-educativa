@@ -2,6 +2,7 @@ package e2;
 
 
 use strict;
+use warnings;
 use lib 'utils';
 use common;
 
