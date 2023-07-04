@@ -205,6 +205,17 @@ Por defecto, todos los sistemas operativos tipo **UNIX** vienen con el intérpre
 
 En **Windows** basta con descargar el [Entorno de Perl para Windows](https://strawberryperl.com/), elegir la arquitectura adecuada e instalarlo.
 
+### Paquetes necesarios para Perl
+
+Se require la instalación de los siguientes paquetes, utilzando CPAN:
+
+```bash
+cpan LWP::UserAgent
+cpan JSON
+cpan DBI
+cpan DBD:mysql
+```
+
 ### Ejecución de ejercicios
 
 Todos los ejercicios se encuentran en `.../ejercicios-educativa/src/perl`. Cada uno, puede ejecutarse de la siguiente manera:
