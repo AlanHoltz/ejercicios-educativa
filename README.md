@@ -69,7 +69,7 @@ sudo systemctl start mysql
 ### Clonar repositorio
 
 ```bash
-git clone https://github.com/AlanHoltz/{usuario}@ejercicios-educativa.git
+git clone https://{usuario}@github.com/AlanHoltz/ejercicios-educativa.git
   
 #{usuario} es el nombre con el que se está logueado actualmente en Git
 ```
