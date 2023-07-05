@@ -136,7 +136,7 @@ Ya estamos en condiciones para ejecutar y probar todos los ejercicios.
 
 ## Ejecución de ejercicios
 
-Los ejercicios se encuentran en `.../ejercicios-educativa/src`. Cada uno, puede ejecutarse de la siguiente manera:
+Los ejercicios se encuentran en `.../ejercicios-educativa/src/python`. Cada uno, puede ejecutarse de la siguiente manera:
 
 ```bash
 py eX.py
@@ -193,4 +193,46 @@ Eliminar la inscripción del usuario con ID 3 al curso de ID 5:
 py e6 -e -u 1 -c 1
 # O
 python3 e6 -e -u 1 -c 1
+```
+
+## Lenguaje Perl
+
+Si deseamos ejecutar los ejercicios implementados con el lenguaje Perl, adicionalmente a lo hecho con anterioridad, debemos instalar algunas dependencias más.
+
+### Instalar Dependencias
+
+Por defecto, todos los sistemas operativos tipo **UNIX** vienen con el intérprete de Perl integrado, por lo que no hace falta instalarlo manualmente.
+
+En **Windows** basta con descargar el [Entorno de Perl para Windows](https://strawberryperl.com/), elegir la arquitectura adecuada e instalarlo.
+
+### Paquetes necesarios para Perl
+
+Se require la instalación de los siguientes paquetes, utilzando CPAN:
+
+#### Windows
+
+```bash
+cpan LWP::UserAgent
+cpan JSON
+cpan DBI
+cpan DBD:mysql
+cpan Text::Table
+```
+
+#### Linux
+
+```bash
+sudo cpan LWP::UserAgent
+sudo cpan JSON
+sudo cpan DBI
+sudo cpan DBD:mysql
+sudo cpan Text::Table
+```
+
+### Ejecución de ejercicios
+
+Todos los ejercicios se encuentran en `.../ejercicios-educativa/src/perl`. Cada uno, puede ejecutarse de la siguiente manera:
+
+```bash
+perl eX.pm #X=1,2,3,4,5,6
 ```

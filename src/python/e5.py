@@ -55,7 +55,7 @@ def main():
     enrollments = get_enrollments(users)
 
     fill_table("usuarios", ["id","nombre", "apellido"], users)
-    fill_table("cursos", ["id","nombre","id_docente","cupo"], courses)
+    fill_table("cursos", ["id","nombre","cupo","id_docente"], courses)
     fill_table("usuarios_cursos", ["course_id", "user_id"], enrollments)
 
     show_enrollments()
