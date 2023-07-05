@@ -8,27 +8,6 @@ use common;
 use db; 
 
 
-sub get_env_values {
-    
-    open(my $env_file, "<", "../../.env") || die "ERROR ABRIENDO .ENV: $!";
-
-    my $env_values = ();
-    
-    while(my $line = <$env_file>){
-        
-        my $key;
-        my $value;
-        
-        if($line =~ /^\s*([^=\s]+)/){$key = $1};
-        if($line =~ /=\s*(.*)/){$value = $1};
-        
-        $env_values -> {$key} = $value;
-    };
-
-    return $env_values;
-};
-
-
 sub main{
 
     common::clear();
@@ -66,8 +45,7 @@ sub main{
 
     $db_conn -> disconnect();
 
-    print "LAS TABLAS usuarios, cursos y usuarios_cursos HAN SIDO CREADAS CORRECTAMENTE";
-    
+    print "LAS TABLAS usuarios, cursos y usuarios_cursos HAN SIDO CREADAS CORRECTAMENTE"; 
 };
 
 

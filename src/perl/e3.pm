@@ -25,13 +25,13 @@ sub fetch {
 };
 
 
-sub fetch_users{
+sub fetch_users {
 
     return fetch("http://packages.educativa.com/samples/usuarios.json") -> {usuarios};
 };
 
 
-sub fetch_courses{
+sub fetch_courses {
 
     return fetch("http://packages.educativa.com/samples/cursos.json") -> {cursos};
 };

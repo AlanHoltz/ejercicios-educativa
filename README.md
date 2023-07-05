@@ -214,6 +214,7 @@ cpan LWP::UserAgent
 cpan JSON
 cpan DBI
 cpan DBD:mysql
+cpan Text::Table
 ```
 
 ### Ejecución de ejercicios
