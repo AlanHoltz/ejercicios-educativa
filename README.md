@@ -237,4 +237,4 @@ Todos los ejercicios se encuentran en `.../ejercicios-educativa/src/perl`. Cada 
 perl eX.pm #X=1,2,3,4,5,6
 ```
 
-Nota: El funcionamiento del ejercicio 6 *e6.pm*, es exactamente el mismo que el descripto más arriba [utilizando Python](https://github.com/AlanHoltz/ejercicios-educativa#ejercicio-6-inscribir-usuario-a-un-curso).
+Nota: El funcionamiento del ejercicio 6 (**e6.pm**), es exactamente el mismo que el descripto más arriba [utilizando Python](https://github.com/AlanHoltz/ejercicios-educativa#ejercicio-6-inscribir-usuario-a-un-curso).
