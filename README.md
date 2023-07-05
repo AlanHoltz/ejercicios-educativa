@@ -209,12 +209,24 @@ En **Windows** basta con descargar el [Entorno de Perl para Windows](https://str
 
 Se require la instalación de los siguientes paquetes, utilzando CPAN:
 
+#### Windows
+
 ```bash
 cpan LWP::UserAgent
 cpan JSON
 cpan DBI
 cpan DBD:mysql
 cpan Text::Table
+```
+
+#### Linux
+
+```bash
+sudo cpan LWP::UserAgent
+sudo cpan JSON
+sudo cpan DBI
+sudo cpan DBD:mysql
+sudo cpan Text::Table
 ```
 
 ### Ejecución de ejercicios

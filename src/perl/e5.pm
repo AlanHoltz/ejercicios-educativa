@@ -31,6 +31,32 @@ sub get_enrollments {
     return \@enrollments;
 };
 
+
+sub fill_table {
+    
+    my ($table_name,$columns,$data) = @_;
+
+    my $db_conn = db::get_db_connection();
+    my $columns_len = scalar(@{$columns});
+
+
+    my $params = join(",",("?") x $columns_len);
+
+    my $statement = $db_conn -> prepare("INSERT INTO $table_name VALUES ($params)");
+
+    eval {
+        foreach my $element (@{$data}){
+            my @row = ();
+            foreach my $column (@{$columns}){push(@row,($element -> {$column}))};
+            $statement -> execute(@row);
+        };
+    };
+
+    $statement -> finish();
+    $db_conn -> disconnect();
+};
+
+
 sub show_enrollments {
     my $db_conn = db::get_db_connection();
 
@@ -57,30 +83,6 @@ sub show_enrollments {
     print $table->rule('-', '+');
     
     $stmt -> finish();
-    $db_conn -> disconnect();
-};
-
-
-sub fill_table {
-    
-    my ($table_name,$columns,$data) = @_;
-
-    my $db_conn = db::get_db_connection();
-    my $columns_len = scalar(@{$columns});
-
-
-    my $params = join(",",("?") x $columns_len);
-
-    my $statement = $db_conn -> prepare("INSERT INTO $table_name VALUES ($params)");
-
-    eval {
-        foreach my $element (@{$data}){
-            my @row = ();
-            foreach my $column (@{$columns}){push(@row,($element -> {$column}))};
-            $statement -> execute(@row);
-        };
-    };
-
     $db_conn -> disconnect();
 };
 

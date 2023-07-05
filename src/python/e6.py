@@ -65,20 +65,17 @@ def get_user(parser_values):
 
 def get_course(parser_values):
     
-    return db_execute("SELECT * FROM cursos u WHERE u.id_curso = %s", [parser_values.course])
+    return db_execute("SELECT * FROM cursos c WHERE c.id_curso = %s", [parser_values.course])
 
 
 def user_and_course_values_are_valid(user,course):
-
-    student_id = user[0][0]
-    course_id = course[0][0]
     
     if not any(user):
-        print(f"EL USUARIO DE ID {student_id} NO EXISTE")
+        print(f"EL USUARIO INGRESADO NO EXISTE")
         return False 
     
     if not any(course):
-        print(f"EL CURSO DE ID {course_id} NO EXISTE")  
+        print(f"EL CURSO INGRESADO NO EXISTE")  
         return False
     
     return True

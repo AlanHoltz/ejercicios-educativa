@@ -25,4 +25,31 @@ sub get_db_connection {
 };
 
 
+sub fetch_one {
+    my ($query,$params) = @_;
+    my $db_conn = get_db_connection();
+    my $stmt = $db_conn -> prepare($query);
+    $stmt -> execute(@{$params});
+
+    my $row = $stmt -> fetchrow_arrayref;
+
+    $stmt -> finish();
+    $db_conn -> disconnect();
+
+    return $row;
+};
+
+
+sub execute {
+    my ($query,$params) = @_;
+    my $db_conn = get_db_connection();
+    my $stmt = $db_conn -> prepare($query);
+
+    $stmt -> execute(@{$params});
+    
+    $stmt -> finish();
+    $db_conn -> disconnect();
+};
+
+
 1;
